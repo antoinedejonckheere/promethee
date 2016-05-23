@@ -1,10 +1,6 @@
 import utils
+from preference_functions import * 
 
-def usualShapeFunction(delta):
-		if (delta>0):
-			return 1;
-		else:
-			return 0;
 class Promethee:
 	def __init__(self,evaluationTable,weights):
 		assert(len(weights)==len(evaluationTable[0]));
@@ -60,7 +56,7 @@ class Promethee:
 	def assignShapeFunctions(self):
 		self.shapeFunction = [None]*self.numberCriteria;
 		for i in xrange(self.numberCriteria):
-			self.shapeFunction[i] = usualShapeFunction;
+			self.shapeFunction[i] = usual_function;
 	def getPairwiseComparisonMatrix(self):
 		self.computePairWiseComparisonMatrix();
 		return self.pi;
