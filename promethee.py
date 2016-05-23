@@ -61,7 +61,7 @@ class Promethee:
 		self.computePairWiseComparisonMatrix();
 		return self.pi;
 	def computePairWiseComparisonMatrix(self):
-		self.pi = utils.initialiseMatrix(self.numberAlternatives,self.numberAlternatives);
+		self.pi = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in xrange(self.numberAlternatives):
 			for b in xrange(self.numberAlternatives):
 				if a!=b:

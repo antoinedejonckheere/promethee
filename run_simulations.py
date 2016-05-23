@@ -1,5 +1,6 @@
 from promethee import Promethee
 import utils
+
 preferenceTable = [[1,2],
 [2,6],
 [3,4],
