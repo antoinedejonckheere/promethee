@@ -1,3 +1,5 @@
+import utils
+
 def usualShapeFunction(delta):
 		if (delta>0):
 			return 1;
@@ -54,7 +56,7 @@ class Promethee:
 		for x in range(len(self.prometheeII)):
 			print self.prometheeII[x];
 	def getPrometheeIRanking(self):
-		print("promethee I"):
+		print("promethee I")
 	def assignShapeFunctions(self):
 		self.shapeFunction = [None]*self.numberCriteria;
 		for i in xrange(self.numberCriteria):
@@ -63,7 +65,7 @@ class Promethee:
 		self.computePairWiseComparisonMatrix();
 		return self.pi;
 	def computePairWiseComparisonMatrix(self):
-		self.pi = initialiseMatrix(self.numberAlternatives,self.numberAlternatives);
+		self.pi = utils.initialiseMatrix(self.numberAlternatives,self.numberAlternatives);
 		for a in xrange(self.numberAlternatives):
 			for b in xrange(self.numberAlternatives):
 				if a!=b:
@@ -74,20 +76,3 @@ class Promethee:
 					self.pi[a][b] = sum;
 		print("Pairwise comparison matrix is")
 		print self.pi;
-
-def initialiseMatrix(width,height):
-	Matrix=[[0 for x in range(width)] for y in range(height)];
-	return Matrix;
-
-#pr = Promethee(initialiseMatrix(2,3),[0.5,0.5]);
-#print('hello');
-preferenceTable = [[1,2],
-[2,6],
-[3,4],
-[1,3]
-];
-
-weights = [0.4, 0.6];
-
-Promethee(preferenceTable,weights);
-
