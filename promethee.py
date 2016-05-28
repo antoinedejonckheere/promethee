@@ -21,6 +21,7 @@ class Promethee:
 		self.computePositiveMatrix();
 		self.computeNegativeMatrix();
 		self.computePrometheeIMatrix();
+		self.computePrometheeIIMatrix();
 	def normalizeWeights(self):
 		# normalizes the weights given as an input;
 		sumW = sum(self.weights);
@@ -135,3 +136,20 @@ class Promethee:
 				print('Negative matrix is %s \n') %(self.negative_matrix[a][b]);
 				print('Promethee I ranking matrix is %s \n') %(self.prometheeI_matrix[a][b]);
 				print('#################################\n');
+	def computePrometheeIIMatrix(self):
+		self.prometheeII_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
+		for a in range(self.numberAlternatives):
+			for b in range(self.numberAlternatives):
+				if self.phi_plus[a]>self.phi_plus[b]:
+					self.prometheeII_matrix[a][b]=1;
+				elif self.phi_plus[a]<self.phi_plus[b]:
+					self.prometheeII_matrix[a][b]=-1;
+				else:
+					self.prometheeII_matrix[a][b]=0;
+		for a in range(self.numberAlternatives):
+			for b in range(self.numberAlternatives):
+				print("################### \n");
+				print('Element %s,%s: \n') %(a,b);
+				print("Flow for %s is : %s \n") %(a, self.phi_global[a]);
+				print("Flow for %s is : %s \n") %(b, self.phi_global[b]);
+				print("Preference relationship is : %s \n") %(self.prometheeII_matrix[a][b]);
