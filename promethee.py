@@ -13,11 +13,12 @@ class Promethee:
 		self.assignShapeFunctions();
 		print "this is a Promethee class with %s alternatives and %s criteria" %(self.numberAlternatives,self.numberCriteria)
 		# compute pair wise comparison
+		self.computeAllRankings();
+	def computeAllRankings(self):
 		self.computePairWiseComparisonMatrix();
 		self.computepositiveFlow();
 		self.computeNegativeFlow();
 		self.computeGlobalFlow();
-		self.getPrometheeIIRanking();
 		self.computePositiveMatrix();
 		self.computeNegativeMatrix();
 		self.computePrometheeIMatrix();
@@ -153,3 +154,14 @@ class Promethee:
 				print("Flow for %s is : %s \n") %(a, self.phi_global[a]);
 				print("Flow for %s is : %s \n") %(b, self.phi_global[b]);
 				print("Preference relationship is : %s \n") %(self.prometheeII_matrix[a][b]);
+	################# define all "get" methods
+	def getPrometheeIIMatrix(self):
+		return self.prometheeII_matrix;
+	def getPrometheeIMatrix(self):
+		return self.prometheeI_matrix;
+	def getPositiveMatrix(self):
+		return self.positive_matrix;
+	def getNegativeMatrix(self):
+		return self.negative_matrix;
+	def getPairwiseComparisonMatrix(self):
+		return self.pi;
