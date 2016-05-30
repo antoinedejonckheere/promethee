@@ -49,12 +49,12 @@ class Promethee:
 		for a in xrange(self.numberAlternatives):
 			self.phi_global[a] = self.phi_plus[a]-self.phi_minus[a];
 	def getPrometheeIIRanking(self):
-		print("promethee II ranking \n")
-		print("Global Promethee II scores are \n")
+		#print("promethee II ranking \n")
+		#print("Global Promethee II scores are \n")
 		for x in range(len(self.phi_global)):
 			print (self.phi_global[x])
 		self.prometheeII = sorted(range(len(self.phi_global)),key = lambda k: self.phi_global[k], reverse= True);
-		print("ordered alternatives are:\n");
+		#print("ordered alternatives are:\n");
 		for x in range(len(self.prometheeII)):
 			print self.prometheeII[x];
 	def getPrometheeIRanking(self):
@@ -76,8 +76,8 @@ class Promethee:
 						delta = self.evaluationTable[a][k]-self.evaluationTable[b][k];
 						sum += self.weights[k]*self.shapeFunction[k](delta);
 					self.pi[a][b] = sum;
-		print("Pairwise comparison matrix is")
-		print self.pi;
+		#print("Pairwise comparison matrix is")
+		#print self.pi;
 	def computePositiveMatrix(self):
 		self.positive_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in xrange(self.numberAlternatives):
@@ -88,12 +88,12 @@ class Promethee:
 					self.positive_matrix[a][b] = -1;
 				else:
 					self.positive_matrix[a][b] = 0;
-		for a in xrange(self.numberAlternatives):
-			for b in xrange(self.numberAlternatives):
-				print("Alternative %s with positive flow %s \n") %(a,self.phi_plus[a]);
-				print("Alternative %s with positive flow %s \n") %(b,self.phi_plus[b]);
-				print("making positive matrix element of %s \n") %(self.positive_matrix[a][b]);
-				print("########################################");
+		#for a in xrange(self.numberAlternatives):
+		#	for b in xrange(self.numberAlternatives):
+				#print("Alternative %s with positive flow %s \n") %(a,self.phi_plus[a]);
+				#print("Alternative %s with positive flow %s \n") %(b,self.phi_plus[b]);
+				#print("making positive matrix element of %s \n") %(self.positive_matrix[a][b]);
+				#print("########################################");
 	def computeNegativeMatrix(self):
 		self.negative_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in xrange(self.numberAlternatives):
@@ -104,12 +104,12 @@ class Promethee:
 					self.negative_matrix[a][b] = -1;
 				else:
 					self.negative_matrix[a][b] = 0;
-		for a in xrange(self.numberAlternatives):
-			for b in xrange(self.numberAlternatives):
-				print("Alternative %s with negative flow %s \n") %(a,self.phi_minus[a]);
-				print("Alternative %s with negative flow %s \n") %(b,self.phi_minus[b]);
-				print("making negative matrix element of %s \n") %(self.negative_matrix[a][b]);
-				print("########################################");
+		#for a in xrange(self.numberAlternatives):
+		#	for b in xrange(self.numberAlternatives):
+				#print("Alternative %s with negative flow %s \n") %(a,self.phi_minus[a]);
+				#print("Alternative %s with negative flow %s \n") %(b,self.phi_minus[b]);
+				#print("making negative matrix element of %s \n") %(self.negative_matrix[a][b]);
+				#print("########################################");
 	def computePrometheeIMatrix(self):
 		self.prometheeI_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in range(self.numberAlternatives):
@@ -129,14 +129,14 @@ class Promethee:
 					# dernier cas: les deux resultats sont différents et aucun n'est nul. Donc, incomparabilité!
 					else:
 						self.prometheeI_matrix[a][b] = "R";
-		for a in range(self.numberAlternatives):
-			for b in range(self.numberAlternatives):
-				print('#################################\n');
-				print('Element %s,%s: \n') %(a,b);
-				print('Positive matrix is %s \n') %(self.positive_matrix[a][b]);
-				print('Negative matrix is %s \n') %(self.negative_matrix[a][b]);
-				print('Promethee I ranking matrix is %s \n') %(self.prometheeI_matrix[a][b]);
-				print('#################################\n');
+		#for a in range(self.numberAlternatives):
+			#for b in range(self.numberAlternatives):
+				#print('#################################\n');
+				#print('Element %s,%s: \n') %(a,b);
+				#print('Positive matrix is %s \n') %(self.positive_matrix[a][b]);
+				#print('Negative matrix is %s \n') %(self.negative_matrix[a][b]);
+				#print('Promethee I ranking matrix is %s \n') %(self.prometheeI_matrix[a][b]);
+				#print('#################################\n');
 	def computePrometheeIIMatrix(self):
 		self.prometheeII_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in range(self.numberAlternatives):
@@ -147,13 +147,13 @@ class Promethee:
 					self.prometheeII_matrix[a][b]=-1;
 				else:
 					self.prometheeII_matrix[a][b]=0;
-		for a in range(self.numberAlternatives):
-			for b in range(self.numberAlternatives):
-				print("################### \n");
-				print('Element %s,%s: \n') %(a,b);
-				print("Flow for %s is : %s \n") %(a, self.phi_global[a]);
-				print("Flow for %s is : %s \n") %(b, self.phi_global[b]);
-				print("Preference relationship is : %s \n") %(self.prometheeII_matrix[a][b]);
+		#for a in range(self.numberAlternatives):
+			#for b in range(self.numberAlternatives):
+				#print("################### \n");
+				#print('Element %s,%s: \n') %(a,b);
+				#print("Flow for %s is : %s \n") %(a, self.phi_global[a]);
+				#print("Flow for %s is : %s \n") %(b, self.phi_global[b]);
+				#print("Preference relationship is : %s \n") %(self.prometheeII_matrix[a][b]);
 	################# define all "get" methods
 	def getPrometheeIIMatrix(self):
 		return self.prometheeII_matrix;
