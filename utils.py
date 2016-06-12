@@ -3,6 +3,9 @@ import random;
 def initialise_matrix(width,height):
 	Matrix=[[0 for x in range(width)] for y in range(height)];
 	return Matrix;
+def initialize_array(length):
+	array = [0 for x in range(length)];
+	return array;
 
 def random_matrix(width, height):
 	matrix = [[random.random() for x in range(width)] for y in range(height)];
