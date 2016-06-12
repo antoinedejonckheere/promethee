@@ -8,7 +8,7 @@ number_alternatives = 3;
 number_criteria = 2;
 
 # number of simulations to be run
-number_simulations = 1000;
+number_simulations = 10000;
 
 # initializes results array
 promethee_I_rr = utils.initialize_array(number_simulations);
