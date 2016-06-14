@@ -26,10 +26,4 @@ print promethee_I_rr;
 
 print promethee_II_rr;
 
-a = max(promethee_II_rr);
-b = max(promethee_I_rr);
-
-c = max(a,b);
-
-print c;
-print(a==b);
+print(promethee_I_rr == promethee_II_rr);
