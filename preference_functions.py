@@ -6,8 +6,8 @@ def usual_function(delta):
 def linear_function(delta):
 	if (delta < 0):
 		output = 0.0;
-	elif (delta > 2):
+	elif (delta > 1):
 		output = 1.0;
 	else:
-		output = (delta)/2;
+		output = (delta)/1;
 	return output;
