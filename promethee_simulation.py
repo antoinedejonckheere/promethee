@@ -7,16 +7,16 @@ import utils
 from promethee import Promethee
 
 class prometheeSimulation :
-	def __init__(self, number_alternatives, number_criteria):
+	def __init__(self, number_alternatives, number_criteria, preference_function):
 		self.number_criteria = number_criteria;
 		self.number_alternatives = number_alternatives;
 		self.evaluation_table = utils.random_matrix(number_criteria, number_alternatives);
 		self.weights = utils.random_normalized_array(number_criteria);
-		self.promethee_init = self.compute_promethee();
+		self.promethee_init = self.compute_promethee(preference_function);
 		self.add_alternative();
-		self.promethee_final = self.compute_promethee();
-	def compute_promethee(self):
-		promethee_object = Promethee(self.evaluation_table, self.weights);
+		self.promethee_final = self.compute_promethee(preference_function);
+	def compute_promethee(self, preference_function):
+		promethee_object = Promethee(self.evaluation_table, self.weights, preference_function);
 		return promethee_object;
 	def add_alternative(self):
 		self.evaluation_table.append(utils.random_array(self.number_criteria));
