@@ -62,7 +62,7 @@ class Promethee:
 	def assignShapeFunctions(self):
 		self.shapeFunction = [None]*self.numberCriteria;
 		for i in xrange(self.numberCriteria):
-			self.shapeFunction[i] = usual_function;
+			self.shapeFunction[i] = linear_function;
 	def getPairwiseComparisonMatrix(self):
 		self.computePairWiseComparisonMatrix();
 		return self.pi;
