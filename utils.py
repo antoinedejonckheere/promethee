@@ -21,3 +21,6 @@ def random_normalized_array(length):
 	for x in range(length):
 		array[x] = array[x]/arraySum;
 	return array;
+## returns the result of the division of one integer by another integer
+def divide_integers(numerator, denumerator):
+	return float(numerator)/float(denumerator);
