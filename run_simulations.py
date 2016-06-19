@@ -17,7 +17,7 @@ preferenceTable = [
 
 weights = [0.5, 0.5];
 
-Promethee(preferenceTable,weights);
+Promethee(preferenceTable,weights,'usual');
 
 
 
@@ -31,7 +31,7 @@ test_preference_table=[
 
 test_weights = [0.4, 0.6];
 
-test_promethee = Promethee(test_preference_table, test_weights);
+test_promethee = Promethee(test_preference_table, test_weights,'usual');
 
 #### Define expected outcome of tests ######
 expected_phi_plus = [0.4, 0.6, 0.5];

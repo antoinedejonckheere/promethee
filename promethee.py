@@ -3,13 +3,18 @@ import utils
 from preference_functions import * 
 
 class Promethee:
-	def __init__(self,evaluationTable,weights):
+	# defines the promethee class that we will use to run simulation
+	# evalutionTable (array): table of evaluation of the alternatives w.r.t criteria
+	# weights (vector): weights for the criteria
+	# preference function : type of preference function given (string)
+	def __init__(self,evaluationTable,weights, preference_function):
 		assert(len(weights)==len(evaluationTable[0]));
 		self.evaluationTable = evaluationTable;
 		self.numberAlternatives = len(evaluationTable);
 		self.numberCriteria = len(evaluationTable[0]);
 		self.weights = weights;
 		self.normalizeWeights();
+		self.preference_function = preference_function;
 		self.assignShapeFunctions();
 		#print "this is a Promethee class with %s alternatives and %s criteria" %(self.numberAlternatives,self.numberCriteria)
 		# compute pair wise comparison
@@ -61,8 +66,9 @@ class Promethee:
 		print("promethee I")
 	def assignShapeFunctions(self):
 		self.shapeFunction = [None]*self.numberCriteria;
+		assert(self.preference_function in preference_functions);
 		for i in xrange(self.numberCriteria):
-			self.shapeFunction[i] = linear_function;
+			self.shapeFunction[i] = preference_functions[self.preference_function];
 	def getPairwiseComparisonMatrix(self):
 		self.computePairWiseComparisonMatrix();
 		return self.pi;
