@@ -11,3 +11,8 @@ def linear_function(delta):
 	else:
 		output = (delta)/1;
 	return output;
+
+preference_functions = {
+	'usual': usual_function,
+	'linear': linear_function
+};
