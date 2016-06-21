@@ -5,7 +5,7 @@ from promethee import Promethee
 from promethee_simulation import prometheeSimulation
 
 number_alternatives = 3;
-number_criteria = 2;
+number_criteria = 3;
 
 # number of simulations to be run
 number_simulations = 10000;
@@ -18,7 +18,7 @@ promethee_I_rr = utils.initialize_array(number_simulations);
 promethee_II_rr = utils.initialize_array(number_simulations);
 
 for simulation_number in range(number_simulations):
-	promethee_simu = prometheeSimulation(number_alternatives, number_criteria,'gaussian');
+	promethee_simu = prometheeSimulation(number_alternatives, number_criteria,'linear');
 	promethee_I_rr[simulation_number] = promethee_simu.detect_promethee_I_rr();
 	promethee_II_rr[simulation_number] = promethee_simu.detect_promethee_II_rr();
 

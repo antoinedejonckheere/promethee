@@ -16,7 +16,7 @@ class Promethee:
 		self.normalizeWeights();
 		self.preference_function = preference_function;
 		self.assignShapeFunctions();
-		#print "this is a Promethee class with %s alternatives and %s criteria" %(self.numberAlternatives,self.numberCriteria)
+		# print "this is a Promethee class with %s alternatives and %s criteria" %(self.numberAlternatives,self.numberCriteria)
 		# compute pair wise comparison
 		self.computeAllRankings();
 	def computeAllRankings(self):
