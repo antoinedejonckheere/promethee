@@ -27,9 +27,11 @@ def divide_integers(numerator, denumerator):
 	return float(numerator)/float(denumerator);
 
 def write_table_to_csv(array,path_to_csv):
+	print("opening file %s to write") %(path_to_csv);
 	with open(path_to_csv, 'w') as csvfile:
 		writer = csv.writer(csvfile)
 		[writer.writerow(r) for r in array]
+	print("FILE SUCCESFULLY WRITTEN");
 
 def read_table_from_csv(path_to_csv):
 	with open(path_to_csv, 'r') as csvfile:
