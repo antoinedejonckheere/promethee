@@ -1,7 +1,7 @@
 # coding=utf-8
 from math import exp
 
-Q = 0.00001;
+Q = 0.5;
 
 def usual_function(delta):
 		if (delta>0):
