@@ -4,8 +4,8 @@ import utils
 from promethee import Promethee
 from promethee_simulation import prometheeSimulation
 
-number_alternatives = 3;
-number_criteria = 3;
+number_alternatives = 2;
+number_criteria = 2;
 
 # path where data needs to be written
 path_to_file = './data/';
@@ -14,12 +14,13 @@ file_name = 'data_output.csv';
 
 # preference functions to be considered
 preference_functions = [
-'linear',
+'usual',
 'gaussian',
-'quasi-criterion'];
+'gaussian',
+'gaussian'];
 
 # number of simulations to be run
-number_simulations = 100000;
+number_simulations = 1000;
 
 # number of decimals for RR frequency
 ndigits = 5;
@@ -61,6 +62,10 @@ for preference_function in preference_functions:
 		sum(promethee_II_rr), 
 		promethee_II_rr_frequency]);
 
-print results_array;
 
+print("PRINTING RESULTS");
+for result in results_array:
+	print result
+
+print("WRITING results to file" + path_to_file+file_name);
 utils.write_table_to_csv(results_array, path_to_file+file_name);
