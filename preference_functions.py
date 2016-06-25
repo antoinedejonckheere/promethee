@@ -18,7 +18,7 @@ def linear_function(delta):
 	return output;
 def gaussian_function(delta):
 	if (delta >0):
-		res = exp(-(delta**2.0)/(2*0.21**2));
+		res = exp(-(delta**2.0)/(2*(0.28**2)));
 	else:
 		res = 0;
 	return res;
