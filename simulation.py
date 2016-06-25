@@ -18,7 +18,7 @@ promethee_I_rr = utils.initialize_array(number_simulations);
 promethee_II_rr = utils.initialize_array(number_simulations);
 
 for simulation_number in range(number_simulations):
-	promethee_simu = prometheeSimulation(number_alternatives, number_criteria,'linear');
+	promethee_simu = prometheeSimulation(number_alternatives, number_criteria,'quasi-criterion');
 	promethee_I_rr[simulation_number] = promethee_simu.detect_promethee_I_rr();
 	promethee_II_rr[simulation_number] = promethee_simu.detect_promethee_II_rr();
 
