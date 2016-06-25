@@ -36,3 +36,4 @@ def read_table_from_csv(path_to_csv):
 		reader = csv.reader(csvfile)
 		table = [[e for e in r] for r in reader]
 	return table;
+
