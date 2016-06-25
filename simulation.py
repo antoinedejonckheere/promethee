@@ -19,7 +19,7 @@ preference_functions = [
 'quasi-criterion'];
 
 # number of simulations to be run
-number_simulations = 1000;
+number_simulations = 100000;
 
 # number of decimals for RR frequency
 ndigits = 5;
@@ -39,7 +39,7 @@ for preference_function in preference_functions:
 	promethee_II_rr = utils.initialize_array(number_simulations);
 	print preference_function;
 	for simulation_number in range(number_simulations):
-		promethee_simu = prometheeSimulation(number_alternatives, number_criteria, 'quasi-criterion');
+		promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function);
 		promethee_I_rr[simulation_number] = promethee_simu.detect_promethee_I_rr();
 		promethee_II_rr[simulation_number] = promethee_simu.detect_promethee_II_rr();
 	## RR frequency for promethee I
