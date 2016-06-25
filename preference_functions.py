@@ -17,7 +17,10 @@ def linear_function(delta):
 		output = (delta);
 	return output;
 def gaussian_function(delta):
-	res = exp(-(delta**2.0)/(2*0.21**2));
+	if (delta >0):
+		res = exp(-(delta**2.0)/(2*0.21**2));
+	else:
+		res = 0;
 	return res;
 
 def quasi_criterion(delta):
