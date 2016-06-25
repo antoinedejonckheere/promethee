@@ -7,6 +7,11 @@ from promethee_simulation import prometheeSimulation
 number_alternatives = 3;
 number_criteria = 3;
 
+# path where data needs to be written
+path_to_file = './data/';
+
+file_name = 'data_output.csv';
+
 # preference functions to be considered
 preference_functions = [
 'linear',
@@ -57,3 +62,5 @@ for preference_function in preference_functions:
 		promethee_II_rr_frequency]);
 
 print results_array;
+
+utils.write_table_to_csv(results_array, path_to_file+file_name);
