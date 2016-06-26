@@ -15,12 +15,12 @@ file_name = 'data_output.csv';
 # preference functions to be considered
 preference_functions = [
 'usual',
-'gaussian',
-'gaussian',
+'quasi-criterion',
+'linear',
 'gaussian'];
 
 # number of simulations to be run
-number_simulations = 100000;
+number_simulations = 10000;
 
 # number of decimals for RR frequency
 ndigits = 5;
