@@ -2,7 +2,8 @@
 from math import exp
 
 Q = 0.3;
-P=0.7
+P=0.7;
+SIGMA = 0.28;
 
 def usual_function(delta):
 		if (delta>0):
@@ -19,7 +20,7 @@ def linear_function(delta):
 	return output;
 def gaussian_function(delta):
 	if (delta >0):
-		res = exp(-(delta**2.0)/(2*(0.28**2)));
+		res = exp(-(delta**2.0)/(2*(SIGMA**2)));
 	else:
 		res = 0;
 	return res;
