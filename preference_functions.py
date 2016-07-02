@@ -30,9 +30,22 @@ def quasi_criterion(delta):
 		res = 0;
 	return res;
 
+def level_criterion(delta):
+	if delta > 0 :
+		if delta > 0.7:
+			res = 1;
+		elif delta > 0.3:
+			res = 0.5;
+		else:
+			res = 0;
+	else:
+		res = 0;
+	return res;
+
 preference_functions = {
 	'usual': usual_function,
 	'linear': linear_function,
 	'gaussian': gaussian_function,
-	'quasi-criterion': quasi_criterion
+	'quasi-criterion': quasi_criterion, 
+	'level': level_criterion
 };
