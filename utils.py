@@ -1,5 +1,6 @@
 import random;
 import csv;
+import datetime;
 
 def initialise_matrix(width,height):
 	Matrix=[[0 for x in range(width)] for y in range(height)];
@@ -38,4 +39,16 @@ def read_table_from_csv(path_to_csv):
 		reader = csv.reader(csvfile)
 		table = [[e for e in r] for r in reader]
 	return table;
+def format_to_2(string):
+	if len(string) ==1:
+		string = '0'+string;
+	return string;
+def generate_date_time_stamp():
+	now = datetime.datetime.now();
+	year = str(now.year);
+	month=format_to_2(str(now.month));
+	day=format_to_2(str(now.day));
+	hour = format_to_2(str(now.hour));
+	return year+month+day+hour;
+
 
