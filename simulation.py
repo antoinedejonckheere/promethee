@@ -68,7 +68,8 @@ for preference_function in preference_functions:
 
 print("PRINTING RESULTS");
 for result in results_array:
-	print result
+	print result;
+	print("\n");
 
 print("WRITING results to file" + path_to_file+file_name);
 utils.write_table_to_csv(results_array, path_to_file+file_name);
