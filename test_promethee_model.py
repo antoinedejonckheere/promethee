@@ -12,10 +12,6 @@ def run_promethee_test():
 
 	Promethee(preferenceTable,weights,'usual');
 
-
-
-	####### Running tests before running simulation##########
-
 	test_preference_table=[
 	[4,2],
 	[1,5],

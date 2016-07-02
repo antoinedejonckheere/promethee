@@ -8,8 +8,6 @@ def run_preference_functions_tests():
 	q = 0.3;
 	sigma = 1;
 
-
-
 	pref_test_object = PreferenceFunctions(p, q, sigma);
 	pref_test = pref_test_object.get_preference_functions();
 
