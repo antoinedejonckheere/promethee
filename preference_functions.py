@@ -1,10 +1,6 @@
 # coding=utf-8
 from math import exp
 
-Q = 0.3;
-P=0.7;
-SIGMA = 0.28;
-
 class PreferenceFunctions:
 	def __init__(self, p, q, sigma):
 		self.p = p;
@@ -19,7 +15,7 @@ class PreferenceFunctions:
 		if (delta < 0):
 			output = 0.0;
 		elif (delta <self.p):
-			output = delta/P;
+			output = delta/self.p;
 		elif (delta > self.p):
 			output = 1.0;
 		else:
@@ -61,7 +57,7 @@ class PreferenceFunctions:
 				res = (delta -self.q)/(self.p-self.q);
 		return res;
 
-	def preference_functions(self):
+	def get_preference_functions(self):
 		return {
 			'usual': self.usual_function,
 			'linear': self.linear_function,

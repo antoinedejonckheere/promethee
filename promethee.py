@@ -65,7 +65,7 @@ class Promethee:
 		print("promethee I")
 	def assignShapeFunctions(self):
 		self.shapeFunction = [None]*self.numberCriteria;
-		availablePreferenceFunctions = PreferenceFunctions(self.p, self.q, self.sigma).preference_functions();
+		availablePreferenceFunctions = PreferenceFunctions(self.p, self.q, self.sigma).get_preference_functions();
 		assert(self.preference_function in availablePreferenceFunctions);
 		for i in xrange(self.numberCriteria):
 			self.shapeFunction[i] = availablePreferenceFunctions[self.preference_function];
