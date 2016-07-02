@@ -14,7 +14,7 @@ def run_simulations():
 	# path where data needs to be written
 	path_to_file = './data/';
 
-	file_name = 'data_output.csv';
+	file_name = 'data_output';
 
 	# preference functions to be considered
 	preference_functions = [
@@ -112,7 +112,7 @@ def run_simulations():
 		print("\n");
 
 	print("WRITING results to file" + path_to_file+file_name);
-	utils.write_table_to_csv(results_array, path_to_file+file_name);
+	utils.write_table_to_csv(results_array, path_to_file+file_name+'_'+utils.generate_date_time_stamp()+".csv");
 
 if __name__ == '__main__':
 	test_preference_function.run_preference_functions_tests();
