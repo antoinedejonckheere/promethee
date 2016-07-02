@@ -52,10 +52,10 @@ class prometheeSimulation :
 		# init variable
 		count = 0;
 		for x in range(self.number_alternatives):
-			for y in range(self.number_alternatives - x):
+			for y in range(self.number_alternatives):
 				if matrix_init[x][y] != matrix_final[x][y]:
 					count +=1;
-		return count;
+		return count/2;
 	def detect_promethee_I_rr(self):
 		promethee_I_rr = 0;
 		if (self.compare_promethee_matrices(self.promethee_init.getPrometheeIMatrix(), self.promethee_final.getPrometheeIMatrix()) == False):
