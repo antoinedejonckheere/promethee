@@ -38,22 +38,24 @@ class prometheeSimulation :
 		'incomparability': 0, # aPb -> aRb, aRb -> aPb
 		};
 		for x in range(self.number_alternatives):
-			for y in range(self.number_alternatives - x):
+			for y in range(self.number_alternatives):
 				if matrix_init[x][y] != matrix_final[x][y]:
 					if matrix_init[x][y] == 'R' or matrix_final[x][y]== 'R':
 						rank_reversal['incomparability']+=1;
 					else:
 						rank_reversal['preference_reversal']+=1;
+		rank_reversal['incomparability'] = rank_reversal['incomparability']/2;
+		rank_reversal['preference_reversal']= rank_reversal['preference_reversal']/2;
 		return rank_reversal;
 	def compare_promethee_II_matrices(self, matrix_init, matrix_final):
 		# return the count of alternatives for which RR has been observed
 		# init variable
 		count = 0;
 		for x in range(self.number_alternatives):
-			for y in range(self.number_alternatives - x):
+			for y in range(self.number_alternatives):
 				if matrix_init[x][y] != matrix_final[x][y]:
 					count +=1;
-		return count;
+		return count/2;
 	def detect_promethee_I_rr(self):
 		promethee_I_rr = 0;
 		if (self.compare_promethee_matrices(self.promethee_init.getPrometheeIMatrix(), self.promethee_final.getPrometheeIMatrix()) == False):

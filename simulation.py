@@ -5,6 +5,7 @@ from promethee import Promethee
 from promethee_simulation import prometheeSimulation
 import test_preference_function;
 import test_promethee_model;
+import test_promethee_simulation_class;
 
 def run_simulations():
 	number_alternatives = 3;
@@ -115,5 +116,6 @@ def run_simulations():
 
 if __name__ == '__main__':
 	test_preference_function.run_preference_functions_tests();
-	test_promethee_model.run_promethee_test()
+	test_promethee_model.run_promethee_test();
+	test_promethee_simulation_class.run_promethee_simulation_tests();
 	run_simulations();
