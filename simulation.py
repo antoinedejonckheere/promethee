@@ -17,7 +17,9 @@ preference_functions = [
 'usual',
 'quasi-criterion',
 'linear',
-'gaussian'];
+'gaussian',
+'level',
+'linear_with_indifference'];
 
 # number of simulations to be run
 number_simulations = 1000;
