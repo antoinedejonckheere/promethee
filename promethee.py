@@ -16,7 +16,6 @@ class Promethee:
 		self.normalizeWeights();
 		self.preference_function = preference_function;
 		self.assignShapeFunctions();
-		# print "this is a Promethee class with %s alternatives and %s criteria" %(self.numberAlternatives,self.numberCriteria)
 		# compute pair wise comparison
 		self.computeAllRankings();
 	def computeAllRankings(self):
@@ -54,12 +53,9 @@ class Promethee:
 		for a in xrange(self.numberAlternatives):
 			self.phi_global[a] = self.phi_plus[a]-self.phi_minus[a];
 	def getPrometheeIIRanking(self):
-		#print("promethee II ranking \n")
-		#print("Global Promethee II scores are \n")
 		for x in range(len(self.phi_global)):
 			print (self.phi_global[x])
 		self.prometheeII = sorted(range(len(self.phi_global)),key = lambda k: self.phi_global[k], reverse= True);
-		#print("ordered alternatives are:\n");
 		for x in range(len(self.prometheeII)):
 			print self.prometheeII[x];
 	def getPrometheeIRanking(self):
@@ -82,8 +78,6 @@ class Promethee:
 						delta = self.evaluationTable[a][k]-self.evaluationTable[b][k];
 						sum += self.weights[k]*self.shapeFunction[k](delta);
 					self.pi[a][b] = sum;
-		#print("Pairwise comparison matrix is")
-		#print self.pi;
 	def computePositiveMatrix(self):
 		self.positive_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in xrange(self.numberAlternatives):
@@ -94,12 +88,6 @@ class Promethee:
 					self.positive_matrix[a][b] = -1;
 				else:
 					self.positive_matrix[a][b] = 0;
-		#for a in xrange(self.numberAlternatives):
-		#	for b in xrange(self.numberAlternatives):
-				#print("Alternative %s with positive flow %s \n") %(a,self.phi_plus[a]);
-				#print("Alternative %s with positive flow %s \n") %(b,self.phi_plus[b]);
-				#print("making positive matrix element of %s \n") %(self.positive_matrix[a][b]);
-				#print("########################################");
 	def computeNegativeMatrix(self):
 		self.negative_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in xrange(self.numberAlternatives):
@@ -110,12 +98,6 @@ class Promethee:
 					self.negative_matrix[a][b] = -1;
 				else:
 					self.negative_matrix[a][b] = 0;
-		#for a in xrange(self.numberAlternatives):
-		#	for b in xrange(self.numberAlternatives):
-				#print("Alternative %s with negative flow %s \n") %(a,self.phi_minus[a]);
-				#print("Alternative %s with negative flow %s \n") %(b,self.phi_minus[b]);
-				#print("making negative matrix element of %s \n") %(self.negative_matrix[a][b]);
-				#print("########################################");
 	def computePrometheeIMatrix(self):
 		self.prometheeI_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in range(self.numberAlternatives):
