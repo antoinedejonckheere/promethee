@@ -23,8 +23,8 @@ class PreferenceFunctions:
 		return output;
 	
 	def gaussian_function(self, delta):
-		if (delta >0):
-			res = exp(-(delta**2.0)/(2*(self.sigma**2)));
+		if (delta >=0):
+			res = 1 - exp(-(delta**2.0)/(2*(self.sigma**2)));
 		else:
 			res = 0;
 		return res;
