@@ -1,7 +1,8 @@
 # coding=utf-8
 from math import exp
 
-Q = 0.5;
+Q = 0.3;
+P=0.7
 
 def usual_function(delta):
 		if (delta>0):
@@ -42,10 +43,21 @@ def level_criterion(delta):
 		res = 0;
 	return res;
 
+def linear_with_indifference(delta):
+	if delta < Q:
+		res = 0;
+	else:
+		if delta > P:
+			res = 1;
+		else:
+			res = (delta -Q)/(P-Q);
+	return res;
+
 preference_functions = {
 	'usual': usual_function,
 	'linear': linear_function,
 	'gaussian': gaussian_function,
 	'quasi-criterion': quasi_criterion, 
-	'level': level_criterion
+	'level': level_criterion,
+	'linear_with_indifference': linear_with_indifference
 };
