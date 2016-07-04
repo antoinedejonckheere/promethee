@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import utils
+import test_utils
 from promethee import Promethee
 from promethee_simulation import prometheeSimulation
 import test_preference_function;
@@ -117,5 +118,6 @@ def run_simulations():
 if __name__ == '__main__':
 	test_preference_function.run_preference_functions_tests();
 	test_promethee_model.run_promethee_test();
+	test_utils.run_utils_tests();
 	test_promethee_simulation_class.run_promethee_simulation_tests();
 	run_simulations();
