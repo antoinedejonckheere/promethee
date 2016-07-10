@@ -57,7 +57,6 @@ def run_simulations():
 		print preference_function;
 		print("###################");
 		parameters_array = generate_preference_function_parameters(0.1, preference_function);
-		print parameters_array;
 		for preference_function_parameters in parameters_array:
 			# initializes results array
 			promethee_I_rr = utils.initialize_array(number_simulations);
