@@ -12,6 +12,7 @@ from preference_functions import generate_preference_function_parameters
 def run_simulations():
 	number_alternatives = 3;
 	number_criteria = 2;
+	DELTA = 0.1;
 
 	# path where data needs to be written
 	path_to_file = './data/';
@@ -56,7 +57,7 @@ def run_simulations():
 		print "PREFERENCE FUNCTION:"
 		print preference_function;
 		print("###################");
-		parameters_array = generate_preference_function_parameters(0.1, preference_function);
+		parameters_array = generate_preference_function_parameters(DELTA, preference_function);
 		for preference_function_parameters in parameters_array:
 			# initializes results array
 			promethee_I_rr = utils.initialize_array(number_simulations);
