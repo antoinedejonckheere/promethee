@@ -1,5 +1,34 @@
 # coding=utf-8
 from math import exp
+import numpy
+
+def generate_preference_function_parameters(delta, function):
+		# delta: the delta between two evaluation parameters (FLOAT)
+		# function: the type of function that is used (STRING)
+		objects_array = [];
+		if function in ['linear', 'level', 'linear_with_indifference']:
+			p = numpy.arange(0,1,delta);
+			if function in ['level', 'linear_with_indifference']:
+				for x in range(0,len(p)):
+					q = numpy.arange(0,p[x],delta);
+					for y in range(0,len(q)):
+						objects_array.append({'p': p[x], 'q': q[y],'sigma': 0});
+			else :
+				for x in range(0,len(p)):
+					objects_array.append({'p': p[x], 'q': 0, 'sigma': 0});			
+		elif function == 'quasi-criterion':
+			q = numpy.arange(0,1,delta);
+			for x in range(0,len(q)):
+				objects_array.append({'p':0, 'q': q[x], 'sigma': 0});
+		elif function == 'gaussian':
+			sigma = numpy.arange(0,1,delta);
+			print sigma;
+			for x in range(0,len(sigma)):
+				objects_array.append({'p':0, 'q': 0, 'sigma': sigma[x]});
+		elif function == 'usual':
+			objects_array.append({'p': 0, 'q': 0, 'sigma': 0});
+		return objects_array;
+
 
 class PreferenceFunctions:
 	def __init__(self, p, q, sigma):
