@@ -7,16 +7,16 @@ class Promethee:
 	# evalutionTable (array): table of evaluation of the alternatives w.r.t criteria
 	# weights (vector): weights for the criteria
 	# preference function : type of preference function given (string)
-	def __init__(self,evaluationTable,weights, preference_function, p = 0.7, q = 0.7, sigma = 0.28):
+	def __init__(self,evaluationTable,weights, preference_function, function_params):
 		assert(len(weights)==len(evaluationTable[0]));
 		self.evaluationTable = evaluationTable;
 		self.numberAlternatives = len(evaluationTable);
 		self.numberCriteria = len(evaluationTable[0]);
 		self.weights = weights;
 		self.normalizeWeights();
-		self.p = p;
-		self.q = q;
-		self.sigma = sigma;
+		self.p = function_params['p'];
+		self.q = function_params['q'];
+		self.sigma = function_params['sigma'];
 		self.preference_function = preference_function;
 		self.assignShapeFunctions();
 		# compute pair wise comparison

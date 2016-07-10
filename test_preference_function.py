@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from preference_functions import PreferenceFunctions
+from preference_functions import generate_preference_function_parameters;
 
 
 def run_preference_functions_tests():
@@ -59,6 +60,36 @@ def run_preference_functions_tests():
 	print("#####################################");
 	print("\n");
 
+	print("########################################")
+	print("Running tests for parameters generation");
+	print("########################################")
+	print("\n");
+
+	test_obj = generate_preference_function_parameters(0.1,'usual');
+	assert(test_obj== [{'p':0, 'q':0, 'sigma': 0}]);
+
+	test_obj = generate_preference_function_parameters(0.1,'linear');
+	assert(len(test_obj)==10);
+
+	test_obj = generate_preference_function_parameters(0.1,'quasi-criterion');
+	assert(len(test_obj)==10);
+
+	def return_p(elem):
+		return elem['p'];
+	def return_q(elem):
+		return elem['q'];
+	def return_sigma(elem):
+		return elem['sigma'];
+
+	q_array = map(return_q, test_obj);
+
+	assert(min(q_array) == 0);
+	assert(max(q_array) == 0.9);
+
+
+	print("########################################")
+	print("Tests passed for parameters generation");
+	print("########################################")
 if __name__ == '__main__':
 	run_preference_functions_tests();
 
