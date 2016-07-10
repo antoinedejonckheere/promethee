@@ -2,16 +2,7 @@ from promethee import Promethee
 import utils
 
 def run_promethee_test():
-	preferenceTable = [
-	[1,2],
-	[2,1],
-	[4,4]
-	];
-
-	weights = [0.5, 0.5];
-
-	Promethee(preferenceTable,weights,'usual');
-
+	
 	test_preference_table=[
 	[4,2],
 	[1,5],
@@ -20,7 +11,7 @@ def run_promethee_test():
 
 	test_weights = [0.4, 0.6];
 
-	test_promethee = Promethee(test_preference_table, test_weights,'usual');
+	test_promethee = Promethee(test_preference_table, test_weights,'usual', {'p':0,'q':0,'sigma':0});
 
 	#### Define expected outcome of tests ######
 	expected_phi_plus = [0.4, 0.6, 0.5];

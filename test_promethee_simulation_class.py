@@ -13,7 +13,7 @@ def run_promethee_simulation_tests():
 	matrix_init = [[1, 0, 'a'],['b', 1, 2],[2, 0, 0]];
 	matrix_final = [[0,0,0],[0,0,0],[0,0,0]];
 	matrix_final2 = matrix_init;
-	promethee_simulation_test_object = prometheeSimulation(number_alternatives,number_criteria,'usual');
+	promethee_simulation_test_object = prometheeSimulation(number_alternatives,number_criteria,'usual',{'p': 0, 'q': 0, 'sigma': 0});
 	print("Testing COMPARE PROMETHEE MATRICES method");
 	assert(promethee_simulation_test_object.compare_promethee_matrices(matrix_init, matrix_final)==False);
 	assert(promethee_simulation_test_object.compare_promethee_matrices(matrix_init, matrix_final2)==True);
