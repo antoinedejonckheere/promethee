@@ -37,6 +37,9 @@ def run_simulations():
 	results_array = [];
 	results_array.append([
 		'preference_function',
+		'p parameter',
+		'q parameter',
+		'sigma parameter',
 		'promethee I rr count',
 		'frequency of promethee I',
 		 'promethee II rr count',
@@ -61,7 +64,8 @@ def run_simulations():
 		for simulation_number in range(number_simulations):
 			if (simulation_number%10000 == 0):
 				print("Running simulation %s out of %s") %(simulation_number, number_simulations);
-			promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function);
+				parameter_object = {'p':0.2, 'q': 0.1, 'sigma': 0.28};
+			promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function, parameter_object);
 			promethee_I_rr[simulation_number] = promethee_simu.detect_promethee_I_rr();
 			promethee_II_rr[simulation_number] = promethee_simu.detect_promethee_II_rr();
 			dic = promethee_simu.specify_promethee_I_rr();
@@ -94,7 +98,10 @@ def run_simulations():
 
 
 		results_array.append([
-			preference_function, 
+			preference_function,
+			parameter_object['p'],
+			parameter_object['q'],
+			parameter_object['sigma'], 
 			sum(promethee_I_rr), 
 			promethee_I_rr_frequency, 
 			sum(promethee_II_rr), 
