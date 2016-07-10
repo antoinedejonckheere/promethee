@@ -9,3 +9,6 @@ To run the simulation, simply execute
 To learn more about promethee methods:
 
 https://en.wikipedia.org/wiki/Preference_ranking_organization_method_for_enrichment_evaluation
+
+## Dependencies
+One external python package is used: NumPy (http://www.scipy.org/scipylib/download.html)
