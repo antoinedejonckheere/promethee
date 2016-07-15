@@ -49,6 +49,7 @@ def generate_date_time_stamp():
 	month=format_to_2(str(now.month));
 	day=format_to_2(str(now.day));
 	hour = format_to_2(str(now.hour));
+	minute = format_to_2(str(now.minute));
 	return year+month+day+hour;
 
 
