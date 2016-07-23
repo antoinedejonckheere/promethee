@@ -50,6 +50,6 @@ def generate_date_time_stamp():
 	day=format_to_2(str(now.day));
 	hour = format_to_2(str(now.hour));
 	minute = format_to_2(str(now.minute));
-	return year+month+day+hour;
+	return year+month+day+hour+minute;
 
 
