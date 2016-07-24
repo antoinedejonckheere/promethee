@@ -38,6 +38,7 @@ def run_simulations():
 
 	results_array = [];
 	results_array.append([
+		'number_of_experiments',
 		'preference_function',
 		'p parameter',
 		'q parameter',
@@ -101,6 +102,7 @@ def run_simulations():
 
 
 			results_array.append([
+				number_simulations,
 				preference_function,
 				preference_function_parameters['p'],
 				preference_function_parameters['q'],
