@@ -57,6 +57,7 @@ class prometheeSimulation :
 					count +=1;
 		return count/2;
 	def detect_promethee_I_rr(self):
+		# returns 1 if rank reversal is observed in promethee I method
 		promethee_I_rr = 0;
 		if (self.compare_promethee_matrices(self.promethee_init.getPrometheeIMatrix(), self.promethee_final.getPrometheeIMatrix()) == False):
 			promethee_I_rr = 1;
@@ -64,6 +65,7 @@ class prometheeSimulation :
 	def specify_promethee_I_rr(self):
 		return self.compare_promethee_I_matrices(self.promethee_init.getPrometheeIMatrix(), self.promethee_final.getPrometheeIMatrix());
 	def detect_promethee_II_rr(self):
+		# returns 1 if rank reversal is observed in promethee II method
 		promethee_II_rr = 0;
 		if (self.compare_promethee_matrices(self.promethee_init.getPrometheeIIMatrix(), self.promethee_final.getPrometheeIIMatrix()) == False):
 			promethee_II_rr = 1;
