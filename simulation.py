@@ -68,7 +68,6 @@ def run_simulations():
 			for simulation_number in range(number_simulations):
 				if (simulation_number%10000 == 0):
 					print("Running simulation %s out of %s") %(simulation_number, number_simulations);
-					#parameter_object = {'p':0.2, 'q': 0.1, 'sigma': 0.28};
 				promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function, preference_function_parameters);
 				promethee_I_rr[simulation_number] = promethee_simu.detect_promethee_I_rr();
 				promethee_II_rr[simulation_number] = promethee_simu.detect_promethee_II_rr();
