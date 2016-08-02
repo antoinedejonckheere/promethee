@@ -29,7 +29,7 @@ def run_simulations():
 	'linear_with_indifference'];
 
 	# number of simulations to be run
-	number_simulations = 1000;
+	number_simulations = 100000;
 
 	# number of decimals for RR frequency
 	ndigits = 5;
