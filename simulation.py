@@ -13,6 +13,7 @@ def run_simulations():
 	number_alternatives = 3;
 	number_criteria = 2;
 	DELTA = 0.1;
+	MODE = "BATCH"
 
 	# path where data needs to be written
 	path_to_file = './data/';
@@ -84,28 +85,25 @@ def run_simulations():
 				promethee_II_rr_count[simulation_number] = promethee_simu.specify_promethee_II_rr();
 			## RR frequency for promethee I
 			promethee_I_rr_frequency = utils.divide_integers(sum(promethee_I_rr), len(promethee_I_rr));
-			#print("number of ranks reversals for promethee I:")
-			#print(sum(promethee_I_rr));
-			#print("Promethee I rr frequency:");
-			#print promethee_I_rr_frequency;
-			## rank reversal types for promethee I method
 			promethee_I_preference_reversal = utils.divide_integers(sum(promethee_I_pref_reversal),len(promethee_I_pref_reversal));
 			promethee_I_incomparability_freq = utils.divide_integers(sum(promethee_I_incomparability),len(promethee_I_incomparability));
-			#print("promethee I preference reversals:");
-			#print promethee_I_preference_reversal;
-			#print("promethee I incomparability change:");
-			#print promethee_I_incomparability_freq;
-			## RR frequency for promethee II
 			promethee_II_rr_frequency = utils.divide_integers(sum(promethee_II_rr), len(promethee_II_rr));
-			#print("number of ranks reversals in total order for promethee II:")
-			#print(sum(promethee_II_rr));
-			#print("Promethee II rr frequency:");
-			#print promethee_II_rr_frequency;
-			## rr specifications for promethee II:
 			promethee_II_rr_specs_frequency = utils.divide_integers(sum(promethee_II_rr_count),len(promethee_II_rr_count));
-			#print("Number of alternatives for which RR occurred in promethee II");
-			#print promethee_II_rr_specs_frequency;
-
+			if MODE !="BATCH":
+				print("number of ranks reversals for promethee I:")
+				print(sum(promethee_I_rr));
+				print("Promethee I rr frequency:");
+				print promethee_I_rr_frequency;
+				print("promethee I preference reversals:");
+				print promethee_I_preference_reversal;
+				print("promethee I incomparability change:");
+				print promethee_I_incomparability_freq;
+				print("number of ranks reversals in total order for promethee II:")
+				print(sum(promethee_II_rr));
+				print("Promethee II rr frequency:");
+				print promethee_II_rr_frequency;
+				print("Number of alternatives for which RR occurred in promethee II");
+				print promethee_II_rr_specs_frequency;
 
 			results_array.append([
 				number_simulations,
