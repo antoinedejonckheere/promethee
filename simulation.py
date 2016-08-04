@@ -30,7 +30,7 @@ def run_simulations():
 	'linear_with_indifference'];
 
 	# number of simulations to be run
-	number_simulations = 100000;
+	number_simulations = 1000000;
 
 	# number of decimals for RR frequency
 	ndigits = 5;
@@ -75,7 +75,7 @@ def run_simulations():
 				##	print("Running simulation %s out of %s") %(simulation_number, number_simulations);
 				count += 1;
 				if (count%1000 == 0):
-					print("Running simulation %s out of %s") %(count, total_number_simulations);
+					print("Running simulation %s out of %s for preference function %s") %(count, total_number_simulations, preference_function);
 				promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function, preference_function_parameters);
 				promethee_I_rr[simulation_number] = promethee_simu.detect_promethee_I_rr();
 				promethee_II_rr[simulation_number] = promethee_simu.detect_promethee_II_rr();
