@@ -106,19 +106,19 @@ class Promethee:
 		self.prometheeI_matrix = utils.initialise_matrix(self.numberAlternatives,self.numberAlternatives);
 		for a in range(self.numberAlternatives):
 			for b in range(self.numberAlternatives):
-				# cas 1 : les deux flux donnent le même résultat
-				# en conséquence, le ranking promethee I est équivalent au ranking de chacun des flux positif
-				# et négatif
-				# ceci couvre les cas : double préférence, double indifférence
+				# cas 1 : les deux flux donnent le meme resultat
+				# en consequence, le ranking promethee I est equivalent au ranking de chacun des flux positif
+				# et negatif
+				# ceci couvre les cas : double preference, double indifference
 				if (self.positive_matrix[a][b] == self.negative_matrix[a][b]):
 					self.prometheeI_matrix[a][b] = self.positive_matrix[a][b]
-				# cas 2: on doit gérer la présence d'une indifférence
+				# cas 2: on doit gerer la presence d'une indifference
 				else:
-					# cas 1: l'un des deux classements donne une égalité.
+					# cas 1: l'un des deux classements donne une egalite.
 					# dans ce cas, le ranking est la somme des deux rankings
 					if (self.positive_matrix[a][b]==0 or self.negative_matrix[a][b]==0):
 						self.prometheeI_matrix[a][b]= self.positive_matrix[a][b]+self.negative_matrix[a][b];
-					# dernier cas: les deux resultats sont différents et aucun n'est nul. Donc, incomparabilité!
+					# dernier cas: les deux resultats sont differents et aucun n'est nul. Donc, incomparabilite!
 					else:
 						self.prometheeI_matrix[a][b] = "R";
 	def computePrometheeIIMatrix(self):
