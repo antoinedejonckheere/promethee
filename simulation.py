@@ -71,8 +71,6 @@ def run_simulations():
 			promethee_I_incomparability = utils.initialize_array(number_simulations);
 			promethee_II_rr_count = utils.initialize_array(number_simulations);
 			for simulation_number in range(number_simulations):
-				##if (simulation_number%10000 == 0):
-				##	print("Running simulation %s out of %s") %(simulation_number, number_simulations);
 				count += 1;
 				if (count%1000 == 0):
 					print("Running simulation %s out of %s for preference function %s") %(count, total_number_simulations, preference_function);
