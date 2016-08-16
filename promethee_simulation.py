@@ -20,6 +20,10 @@ class prometheeSimulation :
 		return promethee_object;
 	def add_alternative(self):
 		self.evaluation_table.append(utils.random_array(self.number_criteria));
+	def get_weights(self):
+		return self.weights;
+	def get_evaluation_table(self):
+		return self.evaluation_table;
 	def compare_promethee_matrices(self, matrix_init, matrix_final):
 		# return true if both matrices are the same
 		# false otherwise
