@@ -11,17 +11,20 @@ from preference_functions import generate_preference_function_parameters
 
 number_criteria = 2;
 number_alternatives = 3;
+MAX_NUMBER_ITERATIONS = 1000000000000;
 
 #weights = [0.5, 0.5];
 preference_function = 'gaussian';
 preference_function_parameters = {'p': 0, 'q': 0, 'sigma': 1};
 
 continue_loop = True;
+iterations_count = 0;
 
 while continue_loop:
+    iterations_count +=1;
     # define the experiment here
     promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function, preference_function_parameters);
-    if (promethee_simu.detect_promethee_I_rr() == 1 and promethee_simu.detect_promethee_II_rr()==1):
+    if ((promethee_simu.detect_promethee_I_rr() == 1 and promethee_simu.detect_promethee_II_rr()==1 and promethee_simu.isLastAlternativeOutranked()) or iterations_count > MAX_NUMBER_ITERATIONS):
         continue_loop = False;
         print("Weights are");
         print(promethee_simu.get_weights());
@@ -31,7 +34,7 @@ while continue_loop:
         print preference_function;
         print("preference functions parameters are");
         print preference_function_parameters;
-        print ('escaping');
+        print ('escaping after %s iterations')%iterations_count;
 
 
 ##Weights are
