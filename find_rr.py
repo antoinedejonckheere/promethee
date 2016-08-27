@@ -42,9 +42,11 @@ evaluation_table = promethee_simu.get_evaluation_table();
 weights = promethee_simu.get_weights();
 promethee_object = Promethee(evaluation_table, weights, preference_function,preference_function_parameters);
 print(promethee_object.getGlobalFlow());
+print(promethee_object.getPrometheeIIMatrix());
 
 promethee_object_removed = Promethee(evaluation_table[0:len(evaluation_table)-1],weights,preference_function,preference_function_parameters)
 print(promethee_object_removed.getGlobalFlow());
+print(promethee_object_removed.getPrometheeIIMatrix());
 
 ##Weights are
 ##[0.5317978414431725, 0.4682021585568274]
