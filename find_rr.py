@@ -24,7 +24,7 @@ while continue_loop:
     iterations_count +=1;
     # define the experiment here
     promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function, preference_function_parameters);
-    if ((promethee_simu.detect_promethee_I_rr() == 1 and promethee_simu.detect_promethee_II_rr()==1) or iterations_count > MAX_NUMBER_ITERATIONS):
+    if ((promethee_simu.detect_promethee_I_rr() == 1 and promethee_simu.detect_promethee_II_rr()==1 and promethee_simu.isLastAlternativeOutranked()) or iterations_count > MAX_NUMBER_ITERATIONS):
         continue_loop = False;
         print("Weights are");
         print(promethee_simu.get_weights());

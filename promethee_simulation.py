@@ -22,6 +22,17 @@ class prometheeSimulation :
 		self.evaluation_table.append(utils.random_array(self.number_criteria));
 	def get_weights(self):
 		return self.weights;
+	def isLastAlternativeOutranked(self):
+		# returns true if the last alternative is outranked by all the others
+		# return false otherwise
+		return_value = True;
+		for x in range(0,self.number_criteria):
+			criteria_evaluation= [];
+			for y in range(0,self.number_alternatives+1):
+				criteria_evaluation.append(self.evaluation_table[y][x]);
+			if (criteria_evaluation.index(min(criteria_evaluation))!=self.number_alternatives):
+				return_value = False;
+		return return_value;
 	def get_evaluation_table(self):
 		return self.evaluation_table;
 	def compare_promethee_matrices(self, matrix_init, matrix_final):
