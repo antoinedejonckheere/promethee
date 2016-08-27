@@ -24,7 +24,10 @@ while continue_loop:
     iterations_count +=1;
     # define the experiment here
     promethee_simu = prometheeSimulation(number_alternatives, number_criteria, preference_function, preference_function_parameters);
-    if ((promethee_simu.detect_promethee_I_rr() == 1 and promethee_simu.detect_promethee_II_rr()==1 and promethee_simu.isLastAlternativeOutranked()) or iterations_count > MAX_NUMBER_ITERATIONS):
+    conditions_met = (promethee_simu.detect_promethee_I_rr() == 1 and 
+                      promethee_simu.detect_promethee_II_rr()==1 and
+                      promethee_simu.isLastAlternativeOutranked()) or iterations_count > MAX_NUMBER_ITERATIONS;
+    if (conditions_met):
         continue_loop = False;
 
 print("Weights are");
@@ -41,12 +44,18 @@ print('running promethee methods for the set defined');
 evaluation_table = promethee_simu.get_evaluation_table();
 weights = promethee_simu.get_weights();
 promethee_object = Promethee(evaluation_table, weights, preference_function,preference_function_parameters);
-print(promethee_object.getGlobalFlow());
-print(promethee_object.getPrometheeIIMatrix());
+global_flow = promethee_object.getGlobalFlow();
+for elem in global_flow:
+    print elem;
+print global_flow.index(max(global_flow));
 
 promethee_object_removed = Promethee(evaluation_table[0:len(evaluation_table)-1],weights,preference_function,preference_function_parameters)
-print(promethee_object_removed.getGlobalFlow());
-print(promethee_object_removed.getPrometheeIIMatrix());
+global_flow_removed = promethee_object_removed.getGlobalFlow();
+print('######');
+for elem in global_flow_removed:
+    print elem;
+print global_flow_removed.index(max(global_flow_removed));
+
 
 ##Weights are
 ##[0.5317978414431725, 0.4682021585568274]
