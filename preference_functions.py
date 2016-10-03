@@ -1,4 +1,4 @@
-# coding=utf-8
+# coding=utf-8rrr
 from math import exp
 import numpy
 
